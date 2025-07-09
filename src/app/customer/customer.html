@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 class="bg-success p-3">Customer Information</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Department</th>
+            </tr>
+        </thead>
+        <tbody>
+           @for(customer of customers$ | async; track customer.customer_id){
+            <tr>
+                <th scope="row">{{customer.customer_id}}</th>
+                <td><a [routerLink]="['/customer', customer.customer_id]">
+                        {{customer.name}}
+                    </a></td>
+                <td>{{customer.age}}</td>
+                <td>{{customer.department}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning mx-2" [routerLink]="['/customer', customer.customer_id]">Edit</button>
+                    <button type="button" class="btn btn-danger mx-2" (click)="delCustomer(customer.customer_id)">Delete</button>
+                </td>
+                
+            </tr>
+            }
+        
+        </tbody>
+    </table>
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</div>

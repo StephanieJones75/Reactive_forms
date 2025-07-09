@@ -1,0 +1,65 @@
+<div class="container mt-3">
+    <form action="" [formGroup]="signUpForm" (ngSubmit)="submitSignUp()">
+        <div>
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" class="form-control" name="username" formControlName="username">
+             @if (signUpForm.get('username')?.touched && signUpForm.get('username')?.errors?.['required']) {
+                <div class="text-danger">Please provide your username.</div>
+              }
+              @if (signUpForm.get('username')?.touched && signUpForm.get('username')?.errors?.['minlength']) {
+                <div class="text-danger">Minimun length is 6.</div>
+              }
+        </div>
+        <div>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" formControlName="password">
+             @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['required']) {
+                <div class="text-danger">Please provide your password.</div>
+              }
+             @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['minlength']) {
+                <div class="text-danger">Minimun password length is 8 characters.</div>
+              }
+              @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['maxlength']) {
+                <div class="text-danger">Maximum password can only be 12 characters.</div>
+              }
+        </div>
+               <div>
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="name" formControlName="name">
+             @if (signUpForm.get('name')?.touched && signUpForm.get('name')?.errors?.['required']) {
+                <div class="text-danger">Please provide your full name.</div>
+             }
+             @if (signUpForm.get('name')?.touched && signUpForm.get('name')?.errors?.['invalidName']) {
+                <div class="text-danger">Please enter your full name.</div>
+             }
+        </div>
+        <div>
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" name="age" formControlName="age">
+             @if (signUpForm.get('age')?.touched && signUpForm.get('age')?.errors?.['required']) {
+                <div class="text-danger">Please provide your age.</div>
+             }
+        </div>
+        <div>
+            <label for="department" class="form-label">Department</label>
+            <input type="text" class="form-control" name="department" formControlName="department">
+             @if (signUpForm.get('department')?.touched && signUpForm.get('departmente')?.errors?.['required']) {
+                <div class="text-danger">Please provide your department name.</div>
+             }
+        </div>
+         <div>
+            <label for="" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="password" formControlName="confirm_password">
+             @if (signUpForm.get('password')?.touched && signUpForm.get('confirm_password')?.errors?.['required']) {
+                <div class="text-danger">Please provide your password.</div>
+              }
+             @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['minlength']) {
+                <div class="text-danger">Minimun password length is 8 characters.</div>
+              }
+              @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.errors?.['maxlength']) {
+                <div class="text-danger">Maximum password can only be 12 characters.</div>
+              }
+        </div>
+        <button type="submit" class="btn btn-primary">Signup</button>
+    </form>
+</div>

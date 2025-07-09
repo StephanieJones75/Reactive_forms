@@ -1,0 +1,48 @@
+<div class="container">
+    <h1 class="bg-warning p-3">Add Customer Information</h1>
+    <form action="" #customerForm="ngForm" (ngSubmit)="submitCustomerForm(customerForm)">
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name: </label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="customer.name" #name="ngModel"
+                minlength="6" required>
+
+
+            @if (name.hasError('required') && name.touched) {
+            <div class="text-danger">
+                Name is required.
+            </div>
+            }
+            @if (name.hasError('minlength') && name.touched) {
+            <div class="text-danger">
+                Name must be at least 6 characters long.
+            </div>
+            }
+
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="age" class="form-label">Age: </label>
+            <input type="number" class="form-control" name="age" [(ngModel)]="customer.age" #age="ngModel" required>
+            @if (age.hasError('required') && age.touched){
+
+            @if (age.hasError('required')) {
+            <div class="text-danger">
+                Age is required.
+            </div>
+            }}
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="department" class="form-label">Department: </label>
+            <input type="text" class="form-control" name="department" [(ngModel)]="customer.department"
+                #department="ngModel" required>
+            @if (department.hasError('required') && department.touched){
+
+            @if (department.hasError('required')) {
+            <div class="text-danger">
+                Department is required.
+            </div>
+            }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
